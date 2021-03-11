@@ -77,7 +77,7 @@ async fn main() -> std::io::Result<()> {
     println!("Port {} opened", port);
 
     web_view::builder()
-        .title("PDF Home development tool")
+        .title("my PDF Home")
         .content(Content::Url(format!("http://127.0.0.1:{}", port)))
         .size(1440, 1024)
         .resizable(true)

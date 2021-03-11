@@ -33,6 +33,11 @@
         </li>
         <li class="mr-3 flex-1">
           <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">FTP업로드&nbsp;&nbsp;<span class="sidebar-badge inline-flex items-center justify-center px-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span></span>
+          </a>
+        </li>
+        <li class="mr-3 flex-1">
+          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
             <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">공동편집자&nbsp;&nbsp;<span class="sidebar-badge inline-flex items-center justify-center px-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span></span>
           </a>
         </li>

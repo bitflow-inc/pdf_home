@@ -4,12 +4,20 @@
     <meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href=/favicon.ico>
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png" />
     <link rel=apple-touch-icon sizes=76x76 href=/apple-icon.png>
     <link rel="stylesheet" href="/css/tailwind.min.css">
     <link rel="stylesheet" href="/css/components.min.css">
-    <title>PDF Home development tool</title>
+    <title>PDF Home developer</title>
     <style>
         html, body, body > div, .container { height: 100%; }
+        #splash { position: fixed; left: calc(50% - 200px); top: calc(50% - 140px); animation-delay: 4s; animation: fade-out 1s;
+            animation-fill-mode: forwards; }
+        @keyframes fade-out {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
     </style>
 </head>
 
@@ -22,5 +30,16 @@
         <router-view></router-view>
     </div>
 
+    <div id="splash">
+        <img src="/img/ic-splash.jpg">
+    </div>
+
+  <script>
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById("splash").style.display = "none";
+    }, 2000);
+}
+  </script>
   </body>
 </html>

@@ -1,12 +1,6 @@
 <template>
 
   <div class="w-full h-full">
-    <div class="md:relative mx-auto lg:px-6 bg-white h-12 pt-1.5 shadow flex justify-end">
-      <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded h-9">
-        취소
-      </button>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded h-9">확인</button>
-    </div>
     <div class="p-6 overflow-y-auto overflow-x-hidden">
       <!-- This example requires Tailwind CSS v2.0+ -->
       <div class="flex flex-col">
