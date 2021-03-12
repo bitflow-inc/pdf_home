@@ -2,7 +2,7 @@
 
   <div class="w-full h-full">
     <div class="header relative mx-auto px-6 bg-white h-9 pt-1 shadow flex justify-between">
-      <div class="pt-0.5 font-semibold">도움말작성</div>
+      <div class="pt-0.5 font-semibold text-gray-700">도움말작성</div>
       <div>
         <select id="id-group" ref="id-group" class="px-4 py-0.5 w-72 rounded border-2">
           <option value="">도움말그룹1</option>

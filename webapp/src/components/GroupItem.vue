@@ -1,6 +1,6 @@
 <template>
 
-  <div class="row-wrapper px-4 py-2 border-4 border-solid border-gray-200 shadow rounded-lg h-64 bg-white">
+  <div class="relative row-wrapper px-4 py-2 border-4 border-solid border-gray-200 shadow rounded-lg h-64 bg-white">
     <div>
       <label for="name" class="block text-sm font-medium text-gray-700 float-left">그룹명</label>&nbsp;<span class="hidden text-xs float-right mt-0.5 text-red-500">그룹명을 입력해주세요</span>
       <input type="text" name="name" id="name" ref="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white block w-full h-64sm:text-sm border-gray-200 rounded-md h-8 p-2" v-model="group_name" placeholder="한글, 영문 및 숫자" maxlength="50"/>
@@ -14,17 +14,18 @@
       <input type="text" name="order_no" id="order_no" ref="order_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-64sm:text-sm border-gray-200 rounded-md" v-model="group_order_no" placeholder="0~255까지 숫자" maxlength="3"/>
     </div>
     <div class="flex justify-end" v-if="isEmpty">
-      <button class="hover:bg-blue-500 text-blue-700 hover:text-white px-2 border border-blue-500 hover:border-transparent rounded h-7" @click="cancelThis()">
+      <button class="hover:bg-blue-500 text-blue-700 hover:text-white px-2 border border-blue-500 hover:border-transparent rounded h-7" @click="cancelWrite()">
         취소
       </button>
       <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded h-7" @click="saveGroup()">저장</button>
     </div>
     <div class="flex justify-end" v-else>
-      <button class="hover:bg-blue-500 text-blue-700 hover:text-white px-2 border border-blue-500 hover:border-transparent rounded h-7" @click="deleteThis()">
+      <button class="hover:bg-blue-500 text-blue-700 hover:text-white px-2 border border-blue-500 hover:border-transparent rounded h-7" @click="cancelModify()">
         삭제
       </button>
       <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded h-7" @click="goModify()">수정</button>
     </div>
+    <div v-if="!isEmpty" class="absolute right-2 top-0 sidebar-badge inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">119</div>
   </div>
 
 </template>
@@ -47,12 +48,16 @@ export default {
     };
   },
   methods: {
-    deleteThis: function() {
-      this.$destroy();
-      this.$el.parentNode.removeChild(this.$el);
+    cancelWrite: function() {
+      if (this.isEmpty===true) {
+        this.$destroy();
+        this.$el.parentNode.removeChild(this.$el);
+      } else {
+        this.$refs.name.setAttribute("readonly", true);
+        this.$refs.order_no.setAttribute("readonly", true);
+      }
     },
-    cancelThis: function() {
-      this.isEmpty = false;
+    cancelModify: function() {
       this.$refs.name.setAttribute("readonly", true);
       this.$refs.order_no.setAttribute("readonly", true);
     },
@@ -66,7 +71,6 @@ export default {
       }
     },
     goModify: function() {
-      this.isEmpty = true;
       this.$refs.name.removeAttribute("readonly");
       this.$refs.order_no.removeAttribute("readonly");
       this.$refs.name.focus();
@@ -101,7 +105,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .row-wrapper { background-image: url('/img/bg-memo.jpg'); }
 .row-wrapper > div + div { margin-top: 0.5rem; }
 .row-wrapper > div + div.flex { margin-top: 1rem; }

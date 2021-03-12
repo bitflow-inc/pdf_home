@@ -4,42 +4,54 @@
     <div class="md:relative mx-auto lg:px-6" style="background-image: url('/img/bg-material.jpg'); height: 120px;">
       <img src="/img/ic-logo.png" class="absolute bottom-0 pb-3">
     </div>
-    <div class="md:relative mx-auto pt-4 px-6">
-      <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
-        <li class="mr-3 flex-1">
-          <router-link to="/" exact active-class="text-white bg-gray-900 md:font-bold" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">대시보드</span>
+    <div class="md:relative mx-auto pt-4 px-4">
+      <ul class="list-reset flex flex-row flex-col text-center text-left">
+        <li class="mb-1 flex-1">
+          <router-link to="/" exact active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <monitor-dashboard></monitor-dashboard><span class="absolute top-2 left-11">대시보드</span>
           </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <router-link to="/contents" active-class="text-white bg-gray-900 md:font-bold" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">도움말작성</span>
+        <li class="mb-1 flex-1">
+          <router-link to="/contents" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <pencil-plus></pencil-plus><span class="absolute top-2 left-11">도움말작성</span>
           </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <router-link to="/group" active-class="text-white bg-gray-900 md:font-bold" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white"><!-- border-pink-600 -->
-            <i class="fas fa-link pr-0 md:pr-3 text-pink-500"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">도움말그룹</span>
+        <li class="mb-1 flex-1">
+          <router-link to="/group" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white"><!-- border-pink-600 -->
+            <file-document-multiple-outline></file-document-multiple-outline><span class="absolute top-2 left-11">도움말그룹</span>
           </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <router-link to="/history" active-class="text-white bg-gray-900 md:font-bold" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">변경이력</span>
+        <li class="mb-1 flex-1">
+          <router-link to="/history" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <order-numeric-descending></order-numeric-descending><span class="absolute top-2 left-11">변경이력</span>
           </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">배포관리</span>
-          </a>
+        <li class="mb-1 flex-1">
+          <router-link to="/download" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <parachute></parachute><span class="absolute top-2 left-11">다운로드</span>
+          </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">FTP업로드&nbsp;&nbsp;<span class="sidebar-badge inline-flex items-center justify-center px-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span></span>
-          </a>
+        <li class="mb-1 flex-1">
+          <router-link to="#" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <floor-plan></floor-plan><span class="absolute top-2 left-11">템플릿관리</span>
+          </router-link>
         </li>
-        <li class="mr-3 flex-1">
-          <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
-            <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">공동편집자&nbsp;&nbsp;<span class="sidebar-badge inline-flex items-center justify-center px-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span></span>
-          </a>
+        <li class="mb-1 flex-1">
+          <router-link to="#" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <server></server><span class="absolute top-2 left-11">셀프호스팅</span>
+          </router-link>
+        </li>
+        <li class="mb-1 flex-1">
+          <router-link to="#" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <folder-upload-outline></folder-upload-outline><span class="absolute top-2 left-11">FTP업로드</span>
+            <span class="absolute right-0 top-0 sidebar-badge inline-flex items-center justify-center px-1.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span>
+          </router-link>
+        </li>
+        <li class="flex-1">
+          <router-link to="#" active-class="text-white bg-gray-900 font-bold" class="relative block py-2 pl-1 align-middle text-gray-400 no-underline rounded-md hover:bg-gray-700 hover:text-white">
+            <account-supervisor></account-supervisor><span class="absolute top-2 left-11">공동편집자</span>
+            <span class="absolute right-0 top-0 sidebar-badge inline-flex items-center justify-center px-1.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">pro</span>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -51,6 +63,16 @@
 </template>
 
 <script>
+import MonitorDashboard from 'vue-material-design-icons/MonitorDashboard.vue';
+import PencilPlus from 'vue-material-design-icons/PencilPlus.vue';
+import Parachute from 'vue-material-design-icons/Parachute.vue';
+import Server from 'vue-material-design-icons/Server.vue';
+import FloorPlan from 'vue-material-design-icons/FloorPlan.vue';
+import FolderUploadOutline from 'vue-material-design-icons/FolderUploadOutline.vue';
+import AccountSupervisor from 'vue-material-design-icons/AccountSupervisor.vue';
+import FileDocumentMultipleOutline from 'vue-material-design-icons/FileDocumentMultipleOutline.vue';
+import OrderNumericDescending from 'vue-material-design-icons/OrderNumericDescending.vue';
+
 export default {
   data() {
     return {
@@ -59,6 +81,15 @@ export default {
   methods: {
   },
   components: {
+    MonitorDashboard,
+    PencilPlus,
+    FloorPlan,
+    Parachute,
+    Server,
+    AccountSupervisor,
+    FolderUploadOutline,
+    FileDocumentMultipleOutline,
+    OrderNumericDescending,
   },
 };
 </script>
@@ -66,4 +97,5 @@ export default {
 <style scoped>
 section { width: 12rem; }
 .sidebar-badge { padding-top: .1rem; padding-bottom: .3rem; }
+.material-design-icon svg { margin-left: 6px; }
 </style>

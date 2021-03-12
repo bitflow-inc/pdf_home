@@ -12,7 +12,7 @@ import VueFroala from 'vue-froala-wysiwyg'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
-Vue.use(VueFroala)
+Vue.use(VueFroala);
 
 const router = new VueRouter({routes});
 
