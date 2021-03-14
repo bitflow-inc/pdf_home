@@ -26,21 +26,25 @@
         <table class="min-w-full divide-y divide-gray-200 text-xs">
           <thead class="bg-gray-50">
           <tr>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+              <input type="checkbox" class="form-checkbox">
+            </th>
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
              변경일시
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            </th>
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               변경자
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               도움말그룹
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               제목
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               사유
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               파일명
             </th>
           </tr>
@@ -48,22 +52,25 @@
 
           <tbody class="bg-white divide-y divide-gray-200 text-xs">
           <tr v-for="item in list" v-bind:key="item.id" class="text-sm">
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
+              <input type="checkbox" class="form-checkbox">
+            </td>
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               {{item.upd_dt}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               {{item.upd_author}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
-              {{item.group_id}}
+            <td class="px-2 py-3 whitespace-nowrap text-center">
+              {{item.group_name}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               {{item.title}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center" v-bind:title="item.comment">
+            <td class="px-2 py-3 whitespace-nowrap text-center" v-bind:title="item.comment">
               {{item.comment}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               <span class="px-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
               {{item.filename}}
               </span>
@@ -84,16 +91,16 @@
         <table class="min-w-full divide-y divide-gray-200 text-xs">
           <thead class="bg-gray-50">
           <tr>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               일시
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               파일명
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               사유
             </th>
-            <th scope="col" class="px-4 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-2 py-3 text-center font-medium text-gray-500 uppercase tracking-wider">
               배포자
             </th>
           </tr>
@@ -101,18 +108,18 @@
 
           <tbody class="bg-white divide-y divide-gray-200 text-xs">
           <tr v-for="item in list" v-bind:key="item.id" class="text-sm">
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               {{item.upd_dt}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               <span class="px-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
               {{item.filename}}
               </span>
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center" v-bind:title="item.comment">
+            <td class="px-2 py-3 whitespace-nowrap text-center" v-bind:title="item.comment">
               {{item.comment}}
             </td>
-            <td class="px-4 py-4 whitespace-nowrap text-center">
+            <td class="px-2 py-3 whitespace-nowrap text-center">
               {{item.upd_author}}
             </td>
           </tr>
@@ -134,9 +141,9 @@ export default {
   },
   data() {
     return {
-      list: [ { id: 411, group_id: "domestic", content_id: "A3003", content_type: "PDF", title: "[A3003] 제목", filename: "A3003.pdf"
+      list: [ { id: 411, group_id: "domestic", group_name: "국내주식", content_id: "A3003", content_type: "PDF", title: "[A3003] 제목", filename: "A3003.pdf"
         , upd_author: "관리자", upd_dt: "1월27일 13시", comment: "신규등록", method: "MOD", realpath: "" },
-        { id: 410, group_id: "domestic", content_id: "A3003", content_type: "HTML", title: "[A3003] 제목", filename: "A3003.pdf"
+        { id: 410, group_id: "domestic", group_name: "국내주식", content_id: "A3003", content_type: "HTML", title: "[A3003] 제목", filename: "A3003.pdf"
           , upd_author: "관리자", upd_dt: "1월27일 13시", comment: "신규등록", method: "ADD", realpath: "" } ],
     }
   },

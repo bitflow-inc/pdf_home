@@ -9,11 +9,11 @@
     <div class="px-6 pb-6 grid grid-cols-2 gap-4">
 
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <div class="flex justify-between bg-blue-300">
+        <div class="flex justify-between bg-blue-300 text-sm">
           <div class="mx-6 my-3 font-semibold text-white">변경이력</div>
           <div>
             <router-link to="/history">
-              <button class="h-7 px-2 m-2 text-sm text-gray-7000 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-gray-1000">더보기</button>
+              <button class="h-7 px-2 m-2 text-xs text-gray-7000 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-gray-1000">더보기</button>
             </router-link>
           </div>
         </div>
@@ -58,11 +58,11 @@
 
 
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <div class="flex justify-between bg-blue-300">
+        <div class="flex justify-between bg-blue-300 text-sm">
           <div class="mx-6 my-3 font-semibold text-white">미배포 변경파일</div>
           <div>
             <router-link to="/download">
-              <button class="h-7 px-2 m-2 text-sm text-gray-7000 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-gray-1000">더보기</button>
+              <button class="h-7 px-2 m-2 text-xs text-gray-7000 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-gray-1000">더보기</button>
             </router-link>
           </div>
         </div>
