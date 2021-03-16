@@ -2,57 +2,56 @@ extern crate serde_derive;  // 1.0.117
 extern crate serde;         // 1.0.117
 extern crate serde_json;    // 1.0.59
 extern crate actix_web;
+extern crate proc_macro;
 
 use actix_web::{body::Body, web, App, HttpRequest, HttpResponse, HttpServer, Result, Responder, Error, http::Method, web::Json};
 use std::{env, borrow::Cow, sync::mpsc, thread, path::Path, fs, io::Write, str, ffi::OsString, ffi::OsStr};
 use serde::{Deserialize, Serialize};
-use super::*;
-use crate::components::structs::{ TextFile, Image };
+use super::super::db as db;
+use super::super::db::model:: { Groups, Contents, };
+use diesel::prelude::*;
 
 
-pub async fn get_images(req: HttpRequest) -> Result<Json<Vec<Image>>> {
+pub async fn get_group(req: HttpRequest) -> impl Responder {
 
-    println!("get_images");
+    println!("get_group");
 
-    let mut ret:Vec<Image> = Vec::new();
-    let path_raw = utils::get_value();
+    use super::super::db::schema::groups::dsl::*;
 
-    return match path_raw {
-        None => { Ok(Json(ret)) },
-        Some(path) => {
-            let paths = fs::read_dir(path).unwrap();
-            let mut counter = 0;
-            for path in paths {
-                let name = path.unwrap().path().display().to_string();
-                if name.to_lowercase().ends_with(".jpg") {
-                    counter = counter + 1;
-                    let mut name_no_ext = Path::new(&name).file_stem().unwrap().to_os_string();
-                    &name_no_ext.push(&OsStr::new(".txt"));
-                    let is_txt_exists = Path::new(&name).parent().unwrap().join(&name_no_ext).exists();
-                    // println!("is_txt_exists {} {}", is_txt_exists, &name_no_ext.to_str().unwrap());
-                    ret.push(Image { url: name.replace("\\", "/"), labeled: is_txt_exists });
-                    if counter == 180 {
-                        break;
-                    }
-                }
-            }
-            Ok(Json(ret))
-        }
+    let connection = db::establish_connection();
+    let results = groups
+        // .filter(published.eq(true))
+        .limit(5)
+        .load::<Groups>(&connection)
+        .expect("Error loading posts");
+
+    println!("Displaying {} groups", results.len());
+
+    let mut ret:Vec<Groups> = Vec::new();
+    for item in results {
+        println!("{} / {} / {}", item.id, item.name, item.order_no);
+        ret.push(item);
     }
+
+    // let ret = Vec::new();
+    return web::Json(ret);
+
 }
 
-pub async fn get_files(req: HttpRequest) -> Result<Json<Vec<TextFile>>> {
+pub async fn set_group(req: HttpRequest) -> Result<HttpResponse> {
 
-    println!("get_files");
+    println!("set_group");
+    Ok(HttpResponse::Ok().json({}))
+}
 
-    let path_raw = super::utils::get_value();
+pub async fn put_group(req: HttpRequest) -> Result<HttpResponse> {
 
-    match path_raw {
-        None => { Ok(Json(Vec::new())) },
-        Some(data) => {
-            let ret = super::files::scan_txt_files(&data);
-            // println!("results {:?}", ret);
-            Ok(Json(ret))
-        }
-    }
+    println!("put_group");
+    Ok(HttpResponse::Ok().json({}))
+}
+
+pub async fn del_group(req: HttpRequest) -> Result<HttpResponse> {
+
+    println!("del_group");
+    Ok(HttpResponse::Ok().json({}))
 }

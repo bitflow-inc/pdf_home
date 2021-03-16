@@ -1,9 +1,10 @@
 #![windows_subsystem = "windows"]
 
 #[macro_use]
-extern crate serde_derive; // 1.0.117
-extern crate serde; // 1.0.117
-extern crate serde_json; // 1.0.59
+extern crate diesel;
+extern crate serde_derive;  // 1.0.117
+extern crate serde;         // 1.0.117
+extern crate serde_json;    // 1.0.59
 extern crate actix_rt;
 extern crate actix_web;
 extern crate actix_multipart;
@@ -25,16 +26,13 @@ use std::{env, borrow::Cow, sync::mpsc, thread, path::Path, fs, io::Write, str, 
 use web_view::*;
 
 mod components;
+mod db;
+
 
 #[derive(RustEmbed)]
 #[folder = "src/web"]
 struct Asset;
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Image {
-    url: String,
-    labeled: bool,
-}
 
 fn assets(req: HttpRequest) -> HttpResponse {
 
@@ -65,8 +63,12 @@ fn assets(req: HttpRequest) -> HttpResponse {
 async fn main() -> std::io::Result<()> {
 
     let server = HttpServer::new(|| App::new()
-        .route("/api/v1/images", web::get().to(components::routes::get_images))
-        .route("/api/v1/files", web::get().to(components::routes::get_files))
+        .route("/api/v1/group", web::get().to(components::routes::get_group))
+        .route("/api/v1/group", web::post().to(components::routes::set_group))
+        .route("/api/v1/group", web::post().to(components::routes::put_group))
+        .route("/api/v1/group", web::delete().to(components::routes::del_group))
+        .route("/api/v1/node", web::get().to(components::routes::get_group))
+        //.route("/api/v1/node", web::get().to(components::routes::get_files))
         .route("*", web::get().to(assets)))
         .bind("127.0.0.1:0")
         .unwrap();
